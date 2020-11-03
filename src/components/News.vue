@@ -31,7 +31,7 @@
           <v-btn
             color="orange"
             text
-            :to="'news/' + 'item._id'"
+            :to="'news/' + item._id"
           >
             Read
           </v-btn>
