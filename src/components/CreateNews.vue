@@ -31,7 +31,7 @@
             :rules="[v => !!v || 'TextArea is required']"
           ></v-textarea>
 
-          <div>
+          <div class="d-flex flex-row">
           <v-btn color="orange" dark @click="$refs.inputUpload.click()">Upload</v-btn>
           <input v-show="false" id="fileNews" ref="inputUpload" type="file" @change="sync">
             <v-spacer></v-spacer>

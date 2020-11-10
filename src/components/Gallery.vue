@@ -43,7 +43,9 @@ export default {
   name: 'Gallery',
   computed: {
     newsList () {
-      return this.$store.getters.NEWS
+      let breakingGallery = this.$store.getters.NEWS
+      breakingGallery = breakingGallery.reverse()
+      return breakingGallery
     }
   },
   mounted () {

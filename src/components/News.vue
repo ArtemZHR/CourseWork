@@ -7,6 +7,7 @@
       cols="xs12 md6 lg4"
     >
       <v-card
+        active-class="hover"
         class="ma-auto ma-xs-10"
         max-width="80%"
         width="400"
@@ -29,7 +30,7 @@
 
         <v-card-actions>
           <v-btn
-            color="orange"
+            class="button"
             text
             :to="'news/' + item._id"
           >
@@ -40,7 +41,6 @@
       </v-card>
     </v-col>
   </v-row>
-
 </template>
 
 <script>
@@ -54,13 +54,14 @@ export default {
   },
   computed: {
     newsList () {
-      const a = this.$store.getters.NEWS
+      let breakingNews = this.$store.getters.NEWS
       if (this.$route.path !== '/news') {
-        a.splice(-1, 10)
-        console.log(a)
-        return a
+        breakingNews = breakingNews.reverse().splice(0, 9)
+        return breakingNews
       } else {
-        return this.$store.getters.NEWS
+        let reverseNews = this.$store.getters.NEWS
+        reverseNews = reverseNews.reverse()
+        return reverseNews
       }
     }
   },
@@ -74,5 +75,15 @@ export default {
 
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
+  .button
+    color: orange
+
+  .button:hover
+    color: white
+    background: orange
+
+  .v-card:hover
+   box-shadow: 0 5px 20px gold
+
 </style>
